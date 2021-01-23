@@ -43,6 +43,11 @@ struct Character* character_alloc(void)
   return character;
 }
 
+void character_free(struct Character* character)
+{
+  free(character);
+}
+
 enum RotationDirection
 {
   LEFT,
@@ -116,6 +121,7 @@ int main(int argc, char** argv)
 
   character_print(character);
   printf("Manhattan distance: %d\n", manhattan_distance(&(character->position), &(struct Position){0, 0}));
+  character_free(character);
   return 0;
 }
 
